@@ -2,8 +2,15 @@
 import React from "react";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
-import { GithubIcon, LinkedInIcon, TwitterIcon } from "./Icons";
+import {
+  GithubIcon,
+  LinkedInIcon,
+  MoonIcon,
+  SunIcon,
+  TwitterIcon,
+} from "./Icons";
 import { motion } from "framer-motion";
+import useThemeSwitcher from "./hooks/useThemeSwitcher";
 const CustomLink = ({ href, title, className = "" }) => {
   const pathname = usePathname();
 
@@ -19,16 +26,27 @@ const CustomLink = ({ href, title, className = "" }) => {
 };
 
 const NavBar = () => {
+  const [mode, setMode] = useThemeSwitcher();
   return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
+    <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light">
       <nav>
-        <CustomLink href="/" title="Home" className="mr-4" />
-        <CustomLink href="/about" title="About" className="mx-4" />
-        <CustomLink href="/projects" title="Projects" className="mx-4" />
-        <CustomLink href="/articles" title="Articles" className="ml-4" />
+        <CustomLink href="/" title="Home" className="mr-4" mode={mode} />
+        <CustomLink href="/about" title="About" className="mx-4" mode={mode} />
+        <CustomLink
+          href="/projects"
+          title="Projects"
+          className="mx-4"
+          mode={mode}
+        />
+        <CustomLink
+          href="/articles"
+          title="Articles"
+          className="ml-4"
+          mode={mode}
+        />
       </nav>
 
-      <nav className="flex items-center justify-center flex-wrap">
+      <nav className="flex items-center justify-center flex-wrap ">
         <motion.a
           href="https://www.linkedin.com/in/indhu-jeyaraman/"
           target={"_blank"}
@@ -56,6 +74,19 @@ const NavBar = () => {
         >
           <TwitterIcon />
         </motion.a>
+
+        <button
+          onClick={() => setMode(mode === "light" ? "dark" : "light")}
+          className={`ml-6 flex items-center justify-center rounded-full p-1 ${
+            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
+          }`}
+        >
+          {mode === "dark" ? (
+            <SunIcon className={"fill-light"} />
+          ) : (
+            <MoonIcon className={"fill-dark"} />
+          )}
+        </button>
       </nav>
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />

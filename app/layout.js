@@ -3,7 +3,6 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-
 const montserrat = Montserrat({
   variable: "--font-mont",
   subsets: ["latin"],
@@ -17,16 +16,35 @@ export const metadata = {
   },
 };
 
+// Function to handle theme before the page loads
+function setInitialTheme() {
+  const theme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (theme === "dark" || (!theme && prefersDark)) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Injecting script to set theme before hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(${setInitialTheme.toString()})()`,
+          }}
+        />
+      </head>
       <body
-        className={`font-mont bg-light w-full min-h-screen ${montserrat.variable}`}
+        className={`font-mont bg-light dark:bg-dark w-full min-h-screen ${montserrat.variable}`}
         suppressHydrationWarning
       >
         <NavBar />
         {children}
-
         <Footer />
       </body>
     </html>

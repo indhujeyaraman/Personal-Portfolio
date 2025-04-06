@@ -1,4 +1,4 @@
-import profilePic from "../public/images/profile/developer-pic-1.png";
+import profilePic from "../public/images/profile/developer-pic-1.webp";
 import React from "react";
 import Image from "next/image";
 import AnimatedText from "@/components/AnimatedText";
@@ -11,7 +11,7 @@ import Layout from "@/components/Layout";
 
 const Home = () => {
   return (
-    <main className="flex items-center text-dark w-full min-h-screen">
+    <main className="flex items-center text-dark w-full min-h-screen 2xl:">
       <Layout className="pt-0">
         <div className="flex items-center justify-between w-full">
           <div className="w-1/2">
