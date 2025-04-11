@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -46,15 +47,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-}
-
-@theme {
-  --breakpoint-xs: 29.9375rem;    /* 479px */
-  --breakpoint-sm: 39.9375rem;    /* 639px */
-  --breakpoint-md: 47.9375rem;    /* 767px */
-  --breakpoint-lg: 63.9375rem;    /* 1023px */
-  --breakpoint-xl: 79.9375rem;    /* 1279px */
-  --breakpoint-2xl: 95.9375rem;   /* 1535px */
 }
 
 /* :root {
@@ -226,21 +218,80 @@ animation: var(--animate-spin); /* spin 1s linear infinite */
   color: rgba(255, 255, 255, 0.75); /* Use RGB directly */
 }
 
-.bg-circular {
-  background-image: repeating-radial-gradient(
-    rgba(0, 0, 0, 0.4) 2px,
-    #f5f5f5 5px,
-    #f5f5f5 100px
-  );
-}
+@layer utilities {
+  /* Default Circular Background (Light + Dark) */
+  .bg-circular {
+    background-image: repeating-radial-gradient(
+      rgba(0, 0, 0, 0.4) 2px,
+      #f5f5f5 5px,
+      #f5f5f5 100px
+    );
+  }
 
-/* Dark mode background (based on parent having .dark class) */
-.dark .bg-circular {
-  background-image: repeating-radial-gradient(
-    rgba(255, 255, 255, 0.5) 2px,
-    #1b1b1b 8px,
-    #1b1b1b 100px
-  );
+  .dark .bg-circular {
+    background-image: repeating-radial-gradient(
+      rgba(255, 255, 255, 0.5) 2px,
+      #1b1b1b 8px,
+      #1b1b1b 100px
+    );
+  }
+
+  /* Max-lg (<=1024px) */
+  @media (max-width: 1024px) {
+    .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(0, 0, 0, 0.4) 2px,
+        #f5f5f5 5px,
+        #f5f5f5 80px
+      ) !important;
+    }
+
+    .dark .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(255, 255, 255, 0.5) 2px,
+        #1b1b1b 8px,
+        #1b1b1b 80px
+      ) !important;
+    }
+  }
+
+  /* Max-md (<=768px) */
+  @media (max-width: 768px) {
+    .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(0, 0, 0, 0.4) 2px,
+        #f5f5f5 5px,
+        #f5f5f5 60px
+      ) !important;
+    }
+
+    .dark .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(255, 255, 255, 0.5) 2px,
+        #1b1b1b 6px,
+        #1b1b1b 60px
+      ) !important;
+    }
+  }
+
+  /* Max-sm (<=640px) */
+  @media (max-width: 640px) {
+    .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(0, 0, 0, 0.4) 2px,
+        #f5f5f5 5px,
+        #f5f5f5 40px
+      ) !important;
+    }
+
+    .dark .bg-circular {
+      background-image: repeating-radial-gradient(
+        rgba(255, 255, 255, 0.5) 2px,
+        #1b1b1b 4px,
+        #1b1b1b 40px
+      ) !important;
+    }
+  }
 }
 
 @layer utilities {
@@ -283,4 +334,72 @@ html.light {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+@media (max-width: 40rem) {
+  .xs\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .xs\:dark\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .xs\:text-dark {
+    color: #1b1b1b;
+  }
+
+  .dark .xs\:text-dark {
+    color: #f5f5f5;
+  }
+  .xs\:text-4xl {
+    font-size: 2.25rem !important; /* 36px */
+    line-height: 2.5rem !important; /* 40px */
+  }
+  .xs\:font-bold {
+    font-weight: 700;
+  }
+  .xs\:h-\[102\%\] {
+    height: 102%;
+  }
+  .xs\:p-4 {
+    padding: 1rem; /* 16px */
+  }
+  .xs\:rounded-\[1\.5rem\] {
+    border-radius: 1.5rem;
+  }
+  .xs\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .xs\:text-xs {
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1rem;
+  }
+
+  .xs\:p-2 {
+    padding: 0.5rem;
+  }
+  .xs\:text-4xl {
+    font-size: 2.25rem;
+  }
+  .xs\:h-\[50vh\] {
+    height: 50vh;
+  }
+  .xs\:left-\[20px\] {
+    left: 20px;
+  }
+  .xs\:w-\[40px\] {
+    width: 40px;
+  }
+
+  .xs\:h-\[40px\] {
+    height: 40px;
+  }
+  .xs\:ml-2 {
+    margin-left: 0.5rem; /* Tailwind's spacing scale: 2 = 0.5rem */
+  }
+  .xs\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }

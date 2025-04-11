@@ -12,26 +12,30 @@ import Layout from "@/components/Layout";
 const Home = () => {
   return (
     <main className="flex items-center text-dark w-full min-h-screen 2xl:">
-      <Layout className="pt-0">
-        <div className="flex items-center justify-between w-full">
-          <div className="w-1/2">
-            <Image src={profilePic} alt="" className="w-full h-auto" />
+      <Layout className="pt-0 max-md:pt-16 max-sm:pt-8  ">
+        <div className="flex items-center justify-between w-full max-lg:flex-col">
+          <div className="w-1/2 max-md:w-full">
+            <Image
+              src={profilePic}
+              alt=""
+              className="w-full h-auto max-lg:hidden max-md:inline-block max-md:w-full"
+            />
           </div>
-          <div className="w-1/2 flex flex-col items-center self-center">
+          <div className="w-1/2 flex flex-col items-center self-center max-lg:w-full max-lg:text-center">
             <AnimatedText
               text="Turning Vision Into Reality With Code And Design."
-              className="!text-6xl !text-left"
+              className="!text-6xl !text-left max-xl:!text-5xl max-lg:!text-center max-lg:!text-6xl max-md:!text-5xl max-sm:!text-3xl "
             />
-            <p className="my-4 text-base font-medium">
+            <p className="my-4 text-base font-medium max-md:text-sm max-sm:text-xs ">
               As a skilled full-stack developer, I am dedicated to turning ideas
               into innovative web applications. Explore my latest projects and
               articles, showcasing my expertise in React.js and web development.
             </p>
-            <div className="items-center  flex mt-2 self-start">
+            <div className="items-center  flex mt-2 self-start max-lg:self-center">
               <Link
                 href="/Indhu_Jeyaraman_CV.pdf"
                 target={"_blank"}
-                className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark"
+                className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark max-md:p-2 max-md:px-4 max-md:text-base"
                 // download={true}
               >
                 Resume <LinkArrow className={"w-6 ml-1"}></LinkArrow>
@@ -39,7 +43,7 @@ const Home = () => {
               <Link
                 href="mailto:indhujayk@gmail.com"
                 target={"_blank"}
-                className="ml-4 text-lg font-medium capitalize text-dark underline transition-transform duration-200 hover:-translate-y-0.5"
+                className="ml-4 text-lg font-medium capitalize text-dark underline transition-transform duration-200 hover:-translate-y-0.5 max-md:text-base"
               >
                 Contact
               </Link>
@@ -48,7 +52,7 @@ const Home = () => {
         </div>
       </Layout>
       <HireMe />
-      <div className="absolute right-8 bottom-8 w-24 inline-block">
+      <div className="absolute right-8 bottom-8 w-24 inline-block max-md:hidden">
         <Image src={lightBulb} alt="" className="w-full h-auto" />
       </div>
     </main>

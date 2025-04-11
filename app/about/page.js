@@ -9,6 +9,7 @@ import { useRef } from "react";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import AnimatedText from "@/components/AnimatedText";
 
 const About = () => {
   const containerRef = useRef();
@@ -21,10 +22,11 @@ const About = () => {
         <meta name="description" content="About Indhu's work and projects" />
       </Head>
       <main className="flex w-full flex-col items-center justify-center min-h-screen bg-light text-dark">
+        <AnimatedText text="Passion Fuels Purpose!" className="mb-14 mt-10 lg:hidden max-lg:!7xl max-sm:!text-6xl max-sm:mb-8 xs:!text-4xl" />
         {/* MAIN CONTAINER */}
         <div className="relative h-full flex  ">
           {/* TEXT CONTAINER (SCROLLABLE) */}
-          <motion.div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-12 md:gap-16 lg:gap-20 xl:gap-24 w-full lg:w-2/3 lg:pr-0 xl:w-1/2 overflow-auto">
+          <motion.div className="p-6 sm:p-12 md:p-24 lg:p-32 xl:p-40 flex flex-col gap-12 md:gap-16 lg:gap-20 xl:gap-24 w-full lg:w-2/3 lg:pr-0 xl:w-1/2 overflow-auto">
             {/* BIOGRAPHY SECTION */}
             <div className="flex flex-col gap-8 justify-center relative">
               {/* 1️⃣ PROFILE IMAGE (First) */}
@@ -39,7 +41,7 @@ const About = () => {
                   alt="Indhu"
                   width={500}
                   height={500}
-                  className="w-100 h-110 rounded-2xl"
+                  className="w-100 h-110 max-lg:w-full max-lg:h-auto rounded-2xl"
                 />
               </motion.div>
 
@@ -95,7 +97,7 @@ const About = () => {
           </motion.div>
 
           {/* STICKY SVG CONTAINER */}
-          <div className="hidden lg:block lg:w-1/3 xl:w-1/2 relative pt-5">
+          <div className="hidden md:block lg:block lg:w-1/3 xl:w-1/2  relative pt-5">
             <div className="sticky top-0 z-30 flex justify-center items-center h-screen overflow-visible pt-14">
               <Brain
                 scrollYProgress={scrollYProgress}
