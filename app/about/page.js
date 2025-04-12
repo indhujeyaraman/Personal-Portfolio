@@ -11,18 +11,24 @@ import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import AnimatedText from "@/components/AnimatedText";
 
+import TransitionProvider from "@/components/TransitionProvider";
+
 const About = () => {
   const containerRef = useRef();
   const { scrollYProgress } = useScroll({ container: containerRef });
-  const profilePic = "/images/profile/developer-pic-2.jpg";
+  const profilePic = "/images/profile/developer-pic-2.png";
   return (
     <>
       <Head>
         <title>Indhu | About Page</title>
         <meta name="description" content="About Indhu's work and projects" />
       </Head>
+      <TransitionProvider />
       <main className="flex w-full flex-col items-center justify-center min-h-screen bg-light text-dark">
-        <AnimatedText text="Passion Fuels Purpose!" className="mb-14 mt-10 lg:hidden max-lg:!7xl max-sm:!text-6xl max-sm:mb-8 xs:!text-4xl" />
+        <AnimatedText
+          text="Passion Fuels Purpose!"
+          className="mb-14 mt-10 lg:hidden max-lg:!7xl max-sm:!text-6xl max-sm:mb-8 xs:!text-4xl"
+        />
         {/* MAIN CONTAINER */}
         <div className="relative h-full flex  ">
           {/* TEXT CONTAINER (SCROLLABLE) */}
@@ -41,7 +47,7 @@ const About = () => {
                   alt="Indhu"
                   width={500}
                   height={500}
-                  className="w-100 h-110 max-lg:w-full max-lg:h-auto rounded-2xl"
+                  className="w-100 h-130 max-lg:w-full max-lg:h-auto rounded-2xl"
                 />
               </motion.div>
 
@@ -98,7 +104,7 @@ const About = () => {
 
           {/* STICKY SVG CONTAINER */}
           <div className="hidden md:block lg:block lg:w-1/3 xl:w-1/2  relative pt-5">
-            <div className="sticky top-0 z-30 flex justify-center items-center h-screen overflow-visible pt-14">
+            <div className="sticky top-0 z-10 flex justify-center items-center h-screen overflow-visible pt-14">
               <Brain
                 scrollYProgress={scrollYProgress}
                 className="max-w-full  h-full"

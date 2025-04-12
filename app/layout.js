@@ -2,6 +2,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { AnimatePresence } from "framer-motion";
+import TransitionProvider from "@/components/TransitionProvider";
 
 const montserrat = Montserrat({
   variable: "--font-mont",
@@ -16,7 +18,6 @@ export const metadata = {
   },
 };
 
-// Function to handle theme before the page loads
 function setInitialTheme() {
   const theme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -32,7 +33,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Injecting script to set theme before hydration */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(${setInitialTheme.toString()})()`,
@@ -44,7 +44,11 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <NavBar />
-        {children}
+        
+        <AnimatePresence mode="wait">
+          <TransitionProvider>{children}</TransitionProvider>
+        </AnimatePresence>
+
         <Footer />
       </body>
     </html>
