@@ -43,44 +43,19 @@ const Experience = () => {
       <h2 className="font-bold text-8xl mb-32 w-full text-center origin-top max-md:text-6xl xs-text-4xl max-md:mb-16">
         Experience
       </h2>
-      <div
-        ref={ref}
-        className="w-[75%] mx-auto relative "
-      >
+      <div ref={ref} className="w-[75%] mx-auto relative ">
         <motion.div
           style={{ scaleY: scrollYProgress }}
           className="absolute left-9 top-0 w-[4px] h-full bg-dark origin-top xs:left-[20px] max-md:left-7 "
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2 ">
           <Details
-            position="Software Engineer"
-            company="Cognizant"
-            companyLink="https://www.cognizant.com/"
-            time="May 2022 - Present"
-            address="Chennai, India"
-            work="Worked on a team responsible for developing a new mobile app feature that allowed users to create and 
-share short-form video content, including designing and implementing a new user interface and developing 
-the backend infrastructure to support the feature."
-          />
-          <Details
-            position="Software Engineer"
-            company="Cognizant"
-            companyLink="https://www.cognizant.com/"
-            time="May 2022 - Present"
-            address="Chennai, India"
-            work="Worked on a team responsible for developing a new mobile app feature that allowed users to create and 
-share short-form video content, including designing and implementing a new user interface and developing 
-the backend infrastructure to support the feature."
-          />
-          <Details
-            position="Software Engineer"
-            company="Cognizant"
-            companyLink="https://www.cognizant.com/"
-            time="May 2022 - Present"
-            address="Chennai, India"
-            work="Worked on a team responsible for developing a new mobile app feature that allowed users to create and 
-share short-form video content, including designing and implementing a new user interface and developing 
-the backend infrastructure to support the feature."
+            position="Software Engineer Intern"
+            company="Hash8.io"
+            companyLink="https://www.hash8.io/"
+            time="August 2023 - March 2024"
+            address="Hosur, India"
+            work="Worked on a team developing a web-based IoT billing platform, contributing to the design and implementation of a clean, responsive user interface and assisting with frontend components and middleware development using Next.js."
           />
         </ul>
       </div>

@@ -2,8 +2,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { AnimatePresence } from "framer-motion";
-import TransitionProvider from "@/components/TransitionProvider";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const montserrat = Montserrat({
   variable: "--font-mont",
@@ -43,13 +42,15 @@ export default function RootLayout({ children }) {
         className={`font-mont bg-light dark:bg-dark w-full min-h-screen ${montserrat.variable}`}
         suppressHydrationWarning
       >
+       
+
+        <TransitionEffect>
         <NavBar />
         
-        <AnimatePresence mode="wait">
-          <TransitionProvider>{children}</TransitionProvider>
-        </AnimatePresence>
+          {children}
 
-        <Footer />
+          <Footer />
+        </TransitionEffect>
       </body>
     </html>
   );

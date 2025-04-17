@@ -59,7 +59,7 @@ const NavBar = () => {
   return (
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light relative z-10 max-lg:px-16 max-md:px-12 max-sm:px-8">
       <button
-        className="flex flex-col justify-center items-center lg:hidden "
+        className="flex flex-col justify-center items-center lg:hidden cursor-pointer"
         onClick={handleClick}
       >
         <span
@@ -80,7 +80,12 @@ const NavBar = () => {
       </button>
       <div className="w-full hidden justify-between items-center lg:flex ">
         <nav>
-          <CustomLink href="/" title="Home" className="mr-4" mode={mode} />
+          <CustomLink
+            href="/"
+            title="Home"
+            className="mr-4 cursor-pointer"
+            mode={mode}
+          />
           <CustomLink
             href="/about"
             title="About"
@@ -94,8 +99,8 @@ const NavBar = () => {
             mode={mode}
           />
           <CustomLink
-            href="/articles"
-            title="Articles"
+            href="/creds"
+            title="Creds"
             className="ml-4"
             mode={mode}
           />
@@ -152,32 +157,32 @@ const NavBar = () => {
           animate={{ scale: 1, opacity: 1 }}
           className="min-w-[70vw] flex flex-col justify-between items-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-black/85 dark:bg-white/75  backdrop-blur-md py-32 rounded-lg  "
         >
-          <nav className="flex items-center justify-center flex-col">
+          <nav className="flex items-center justify-center flex-col ">
             <CustomMobileLink
               href="/"
               title="Home"
-              className=""
+              className="cursor-pointer"
               mode={mode}
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/about"
               title="About"
-              className=" "
+              className=" cursor-pointer"
               mode={mode}
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/projects"
               title="Projects"
-              className=""
+              className="cursor-pointer"
               mode={mode}
               toggle={handleClick}
             />
             <CustomMobileLink
-              href="/articles"
-              title="Articles"
-              className=""
+              href="/creds"
+              title="Creds"
+              className="cursor-pointer"
               mode={mode}
               toggle={handleClick}
             />
@@ -214,14 +219,14 @@ const NavBar = () => {
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`ml-2 flex items-center justify-center rounded-full p-1 ${
+              className={`ml-2 flex items-center justify-center rounded-full p-1 cursor-pointer ${
                 mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
               }`}
             >
               {mode === "dark" ? (
-                <SunIcon className={"fill-light"} />
+                <MoonIcon className="fill-dark" /> // shown on light background
               ) : (
-                <MoonIcon className={"fill-dark"} />
+                <SunIcon className="fill-light" /> // shown on dark background
               )}
             </button>
           </nav>

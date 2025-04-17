@@ -6,9 +6,13 @@ import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
 import Image from "next/image";
 import { GithubIcon } from "@/components/Icons";
-import Project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import Project1 from "../../public/images/projects/YouTube-clone-page.png";
+import Project2 from "../../public/images/projects/To-do-list app.png";
+import Project3 from "../../public/images/projects/Rock-paper-scissor-game.png";
+import Project4 from "../../public/images/projects/Calculator.png";
+
 import { motion } from "framer-motion";
-import TransitionProvider from "@/components/TransitionProvider";
+import TransitionProvider from "@/components/TransitionEffect";
 const FramerImage = motion(Image);
 const Project = ({ type, title, img, link, github }) => {
   return (
@@ -40,7 +44,7 @@ const Project = ({ type, title, img, link, github }) => {
             {title}
           </h2>
         </Link>
-        {/* <p className="my-2 font-medium text-dark">{summary}</p> */}
+
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
             href={link}
@@ -75,36 +79,48 @@ const projects = () => {
             <div className="grid grid-cols-12 gap-24 gap-y-32 max-xl:gap-x-16 max-lg:gap-x-8 max-md:gap-y-24 max-sm:gap-x-0">
               <div className="col-span-6 max-md:col-span-12">
                 <Project
-                  title="Project 1 lorem ipsum lorem  ipsum"
+                  title="YouTube Homepage Clone"
                   img={Project1}
-                  summary="Crypto Screener Application
-A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency."
-                  link="/"
-                  github="/"
-                  type="project-1"
+                  link="https://indhujeyaraman.github.io/youtube-clone/"
+                  github="https://github.com/indhujeyaraman/youtube-clone"
+                  type="HTML & CSS Project"
+                />
+              </div>
+
+              <div className="col-span-6 max-md:col-span-12">
+                {" "}
+                <Project
+                  title="Rock-Paper-Scissors Game"
+                  img={Project3}
+                  link="https://indhujeyaraman.github.io/Rock-Paper-Scissor/"
+                  github="https://github.com/indhujeyaraman/Rock-Paper-Scissor"
+                  type="JavaScript Game Project"
+                />
+              </div>
+              <div className="col-span-6 max-md:col-span-12">
+                <Project
+                  title="To-Do List App"
+                  img={Project2}
+                  link="https://indhujeyaraman.github.io/To-do-List/"
+                  github="https://github.com/indhujeyaraman/To-do-List"
+                  type="JavaScript Project"
                 />
               </div>
               <div className="col-span-6 max-md:col-span-12">
                 {" "}
                 <Project
-                  title="Project 1"
-                  img={Project1}
-                  summary="Crypto Screener Application
-A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency."
-                  link="/"
-                  github="/"
-                  type="project-1"
+                  title="Simple Calculator App"
+                  img={Project4}
+                  link="https://indhujeyaraman.github.io/Calculator/"
+                  github="https://github.com/indhujeyaraman/Calculator"
+                  type="JavaScript Project"
                 />
               </div>
               <div className="col-span-6 max-md:col-span-12">
                 {" "}
-                <Project
+                {/* <Project
                   title="Project 1"
-                  img={Project1}
+                  img={Project5}
                   summary="Crypto Screener Application
 A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
 It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
@@ -112,35 +128,7 @@ local currency."
                   link="/"
                   github="/"
                   type="project-1"
-                />
-              </div>
-              <div className="col-span-6 max-md:col-span-12">
-                {" "}
-                <Project
-                  title="Project 1"
-                  img={Project1}
-                  summary="Crypto Screener Application
-A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency."
-                  link="/"
-                  github="/"
-                  type="project-1"
-                />
-              </div>
-              <div className="col-span-6 max-md:col-span-12">
-                {" "}
-                <Project
-                  title="Project 1"
-                  img={Project1}
-                  summary="Crypto Screener Application
-A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency."
-                  link="/"
-                  github="/"
-                  type="project-1"
-                />
+                /> */}
               </div>
             </div>
           </Layout>

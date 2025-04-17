@@ -8,12 +8,21 @@ const MotionLink = motion(Link);
 const Logo = () => {
   const [mode] = useThemeSwitcher();
 
+  // Define base styles
+  const backgroundColor = "#121212"; // bg-dark
+  const textColor = "#ffffff"; // text-light
+  const borderColor = mode === "dark" ? "#f5f5f5" : "transparent";
+
   return (
     <div className="flex items-center justify-center mt-2">
       <MotionLink
         href="/"
-        className={`w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold border border-solid border-transparent
-          ${mode === "dark" ? "bg-light text-dark" : "bg-dark text-light"}`}
+        className={`w-16 h-16 flex items-center justify-center rounded-full text-2xl font-bold`}
+        animate={{
+          backgroundColor,
+          color: textColor,
+          border: `1px solid ${borderColor}`,
+        }}
         whileHover={{
           backgroundColor: [
             "rgba(131,58,180,1)",
@@ -22,11 +31,6 @@ const Logo = () => {
             "rgba(131,58,180,1)",
           ],
           transition: { duration: 1, repeat: Infinity },
-        }}
-        onHoverEnd={(e) => {
-          // Reset background and text color on hover end
-          e.target.style.backgroundColor = mode === "dark" ? "white" : "#121212";
-          e.target.style.color = mode === "dark" ? "black" : "white";
         }}
         whileTap={{ scale: 0.9 }}
       >

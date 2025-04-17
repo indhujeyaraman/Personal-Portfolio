@@ -11,7 +11,7 @@ import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import AnimatedText from "@/components/AnimatedText";
 
-import TransitionProvider from "@/components/TransitionProvider";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const About = () => {
   const containerRef = useRef();
@@ -23,7 +23,7 @@ const About = () => {
         <title>Indhu | About Page</title>
         <meta name="description" content="About Indhu's work and projects" />
       </Head>
-      <TransitionProvider />
+     
       <main className="flex w-full flex-col items-center justify-center min-h-screen bg-light text-dark">
         <AnimatedText
           text="Passion Fuels Purpose!"
@@ -74,16 +74,19 @@ const About = () => {
                 }}
                 viewport={{ once: true }}
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
-                aliquid magnam expedita, libero dolor iste cumque? Quae possimus
-                magni necessitatibus aperiam, natus quibusdam, fugiat,
-                reprehenderit odio fugit laboriosam minus nam?
+                I&apos;m Indhu, a frontend developer with a strong foundation in
+                HTML, CSS, and JavaScript, and a passion for building
+                responsive, user-friendly websites. As a fresher, I’ve been
+                honing my skills through self-learning and personal projects,
+                focusing on writing clean, well-structured code and constantly
+                looking for ways to improve.
               </motion.p>
 
               {/* 4️⃣ SECOND & THIRD PARAGRAPHS (Appear When Scrolled Into View) */}
               {[
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod veniam quibusdam sapiente similique iste ducimus vel. Beatae corporis adipisci ab. Temporibus possimus officiis quasi corporis, ducimus minus quidem aliquam.",
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod veniam quibusdam sapiente similique iste ducimus vel. Beatae corporis adipisci ab. Temporibus possimus officiis quasi corporis, ducimus minus quidem aliquam.",
+                "What sets me apart is my curiosity and drive to keep learning. Whether it's exploring new design patterns, understanding user experience, or debugging a tricky layout, I enjoy every part of the process that brings a website to life across devices.",
+
+                "Right now, I'm focused on building a solid foundation with hands-on experience and real-world projects. I may be at the beginning of my journey, but I bring a strong commitment to quality, clarity, and continuous growth to everything I build.",
               ].map((text, index) => (
                 <motion.p
                   key={index}

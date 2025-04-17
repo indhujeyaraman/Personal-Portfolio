@@ -14,7 +14,9 @@ const Details = ({ type, time, place, info }) => {
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className="font-bold capitalize text-2xl max-sm:text-xl xs-text-lg">{type}</h3>
+        <h3 className="font-bold capitalize text-2xl max-sm:text-xl xs-text-lg">
+          {type}
+        </h3>
         <span className="font-medium text-75 capitalize xs:text-sm">
           {time} | {place}
         </span>
@@ -44,19 +46,13 @@ const Education = () => {
             type="Bachelor of Arts In English"
             time="2018-2021"
             place="Sri Parasakthi College for Women, Courtallam"
-            info=" I completed my Bachelor's degree in English from Sri Parasakthi College for Women, Courtallam."
+            info="Focused on analyzing literature through critical thinking and interpretation. Developed a strong eye for detail, independent thought, and the ability to observe patterns and meaning in complex texts and ideas."
           />
           <Details
-            type="Bachelor of Arts In English"
-            time="2018-2021"
-            place="Sri Parasakthi College for Women, Courtallam"
-            info=" I completed my Bachelor's degree in English from Sri Parasakthi College for Women, Courtallam."
-          />
-          <Details
-            type="Bachelor of Arts In English"
-            time="2018-2021"
-            place="Sri Parasakthi College for Women, Courtallam"
-            info=" I completed my Bachelor's degree in English from Sri Parasakthi College for Women, Courtallam."
+            type="UX/UI Design Professional Certificate"
+            time="2024"
+            place="Coursera – Offered by Google"
+            info=" Completed an in-depth program covering the foundations of user experience design, including user research, wireframing, prototyping, and usability testing. Gained hands-on experience with design tools and the UX design process from start to finish."
           />
         </ul>
       </div>
