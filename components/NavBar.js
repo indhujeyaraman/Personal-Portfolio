@@ -13,11 +13,11 @@ import {
 import { motion } from "framer-motion";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
 import Link from "next/link";
-const CustomLink = ({ href, title, className = "" }) => {
+const CustomLink = ({ href, title, className = "", mode }) => {
   const pathname = usePathname();
 
   return (
-    <Link href={href} className={`${className} relative group text-dark`}>
+    <Link href={href} className={`${className} relative group`}>
       {title}
       <span
         className={`absolute left-0 bottom-[-2px] h-[2px] bg-dark transition-all duration-300 
@@ -27,28 +27,29 @@ const CustomLink = ({ href, title, className = "" }) => {
   );
 };
 
+
 const CustomMobileLink = ({ href, title, className = "", toggle }) => {
   const router = useRouter();
 
   const handleClick = () => {
     toggle();
-    router.push(href);
+    router.push(href);  
   };
 
   return (
     <button
-      href={href}
       className={`${className} relative group text-light my-2`}
       onClick={handleClick}
     >
       {title}
       <span
         className={`absolute left-0 bottom-[-2px] h-[2px] bg-light transition-all duration-300 
-        ${router === href ? "w-full" : "w-0 group-hover:w-full"}`}
+        ${router.pathname === href ? "w-full" : "w-0 group-hover:w-full"}`}
       />
     </button>
   );
 };
+
 const NavBar = () => {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
@@ -125,15 +126,7 @@ const NavBar = () => {
           >
             <GithubIcon />
           </motion.a>
-          <motion.a
-            href="/"
-            target={"_blank"}
-            whileHover={{ y: 2 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-6 mx-3"
-          >
-            <TwitterIcon />
-          </motion.a>
+          
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -207,15 +200,7 @@ const NavBar = () => {
             >
               <GithubIcon />
             </motion.a>
-            <motion.a
-              href="/"
-              target={"_blank"}
-              whileHover={{ y: 2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mx-3 max-sm:mx-1"
-            >
-              <TwitterIcon />
-            </motion.a>
+           
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -224,9 +209,9 @@ const NavBar = () => {
               }`}
             >
               {mode === "dark" ? (
-                <MoonIcon className="fill-dark" /> // shown on light background
+                <MoonIcon className="fill-dark" /> 
               ) : (
-                <SunIcon className="fill-light" /> // shown on dark background
+                <SunIcon className="fill-light" /> 
               )}
             </button>
           </nav>

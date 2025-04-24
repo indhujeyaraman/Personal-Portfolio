@@ -6,14 +6,14 @@ const LiIcon = ({ reference }) => {
 
   useEffect(() => {
     if (reference?.current) {
-      setIsMounted(true); // Ensure the reference is mounted
+      setIsMounted(true); 
     }
   }, [reference]);
 
-  // Only initialize scroll when the reference is ready
+ 
   const { scrollYProgress } = useScroll({
     target: isMounted ? reference : undefined,
-    offset: ["start end", "center center"], // Changed offset for better visibility
+    offset: ["start end", "center center"], 
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0.01, 1]);

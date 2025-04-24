@@ -5,12 +5,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import cred1 from "../../public/images/creds/Google-UXD-Certificate.jpg";
 import cred2 from "../../public/images/creds/Guvi-generative-AI.jpg";
-import { motion, useMotionValue } from "framer-motion";
 import cred3 from "../../public/images/creds/be10x-AI-tool-Workshop.jpg";
-import TransitionProvider from "@/components/TransitionEffect";
+import { motion, useMotionValue } from "framer-motion";
 
 const FramerImage = motion(Image);
 const MovingImg = ({ title, img, link }) => {
@@ -48,7 +47,7 @@ const MovingImg = ({ title, img, link }) => {
     </Link>
   );
 };
-const Cred = ({ img, title, date, link }) => {
+const Cred = ({ img, title, date, link, description }) => {
   return (
     <motion.li
       initial={{ y: 200 }}
@@ -56,7 +55,14 @@ const Cred = ({ img, title, date, link }) => {
       viewport={{ once: true }}
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 max-sm:flex-col"
     >
-      <MovingImg title={title} img={img} link={link} />
+      <div className="w-full max-w-[80%]">
+        <MovingImg title={title} img={img} link={link} />
+        {description && (
+          <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 max-sm:mt-4 max-sm:text-left">
+            {description}
+          </p>
+        )}
+      </div>
       <span className="text-primary font-semibold pl-4 max-sm:self-start max-sm:pl-0 xs:text-sm">
         {date}
       </span>
@@ -65,47 +71,68 @@ const Cred = ({ img, title, date, link }) => {
 };
 
 const creds = () => {
+  const [showCreds, setShowCreds] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowCreds(true);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <>
+    <motion.div
+      className="h-full"
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }}
+    >
       <Head>
         <title>Indhu | Articles Page</title>
         <meta name="description" content="About Indhu's work and projects" />
       </Head>
-      <TransitionProvider>
-        <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
-          <Layout className="pt-16">
-            <AnimatedText
-              text="Words Can Change The World!"
-              className="mb-16 max-lg:!text-7xl max-sm:mb-8 max-sm:!text-6xl xs:!text:4xl"
-            />
 
-            <h2 className="font-bold text-4xl my-16 w-full text-center ">
-              All Credentials
-            </h2>
+      <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
+        <Layout className="pt-16">
+          <AnimatedText
+            text="Knowledge is the key to unlocking potential"
+            className="mb-16 max-lg:!text-7xl max-sm:mb-8 max-sm:!text-6xl xs:!text:4xl"
+          />
+
+          <h2 className="font-bold text-4xl my-16 w-full text-center">
+            All Credentials
+          </h2>
+
+          {showCreds && (
             <ul>
               <Cred
-                title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
-                date="2022-01-01"
+                title="Google UX Design Professional Certificate"
+                date="17-05-2024"
                 link="https://www.coursera.org/account/accomplishments/professional-cert/2XYBDSWVH3A7"
                 img={cred1}
+                description="Completed a 7-course certificate from Google covering UX research, wireframing, prototyping, and design thinking using Figma and Adobe XD."
               />
+
               <Cred
-                title="Cred-2"
-                date="2022-02-01"
+                title="GUVI SAWIT Learnathon – Fundamentals of Generative AI"
+                date="02-10-2024"
                 link="https://www.guvi.in/verify-certificate?id=451n7iZG718b2P6yv3"
                 img={cred2}
+                description="Participated in GUVI’s SAWIT Learnathon and completed the Fundamentals of Generative AI course, focusing on AI basics, applications, and emerging tools."
               />
               <Cred
-                title="Cred-3"
-                date="2022-03-01"
-                link="/../public/images/creds/Certificate.pdf"
+                title="Be10x AI Tools and ChatGPT Workshop"
+                date="30-03-202"
+                link="https://certx.in/certificate/9318e7f9-0234-4ea4-9390-efad88624b8b278104"
                 img={cred3}
+                description="Completed a workshop on AI tools and ChatGPT, learning how to use AI technologies and apply them in real-world situations."
               />
             </ul>
-          </Layout>
-        </main>
-      </TransitionProvider>
-    </>
+          )}
+        </Layout>
+      </main>
+    </motion.div>
   );
 };
 

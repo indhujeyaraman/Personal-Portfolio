@@ -4,18 +4,18 @@ import { useState, useEffect } from "react";
 
 const useThemeSwitcher = () => {
   const [mode, setMode] = useState(() => {
-    // Check localStorage for theme or use system preference
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) return savedTheme;
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       return prefersDark ? "dark" : "light";
     }
-    return "light"; // Default for SSR
+    return "light";
   });
 
   useEffect(() => {
-    // Apply the theme to the document
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");

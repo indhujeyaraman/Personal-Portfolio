@@ -2,7 +2,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import Link from "next/link";
 const Brain = () => {
-  // ✅ Get scroll progress
+  
   const { scrollYProgress } = useScroll();
   const rotatesForward1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const rotatesForward2 = useTransform(scrollYProgress, [0, 1], [0, 180]);

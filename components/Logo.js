@@ -8,9 +8,9 @@ const MotionLink = motion(Link);
 const Logo = () => {
   const [mode] = useThemeSwitcher();
 
-  // Define base styles
-  const backgroundColor = "#121212"; // bg-dark
-  const textColor = "#ffffff"; // text-light
+  
+  const backgroundColor = "#121212"; 
+  const textColor = "#ffffff"; 
   const borderColor = mode === "dark" ? "#f5f5f5" : "transparent";
 
   return (
