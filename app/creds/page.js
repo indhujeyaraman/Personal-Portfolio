@@ -8,7 +8,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const cred1 = "/images/Creds/public-UXD-Certificate.jpg";
+const cred1 = "/images/creds/Google-UXD-Certificate.jpg";
 const cred2 = "/images/Creds/Guvi-generative-AI.jpg";
 const cred3 = "/images/Creds/be10x-AI-tool-Workshop.jpg";
 const FramerImage = motion(Image);
