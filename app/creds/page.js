@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-import cred1 from "../../public/images/creds/Google-UXD-Certificate.jpg";
-import cred2 from "../../public/images/creds/Guvi-generative-AI.jpg";
-import cred3 from "../../public/images/creds/be10x-AI-tool-Workshop.jpg";
+import cred1 from "../../public/images/Creds/Google-UXD-Certificate.jpg";
+import cred2 from "../../public/images/Creds/Guvi-generative-AI.jpg";
+import cred3 from "../../public/images/Creds/be10x-AI-tool-Workshop.jpg";
 import { motion, useMotionValue } from "framer-motion";
 
 const FramerImage = motion(Image);
@@ -70,7 +70,7 @@ const Cred = ({ img, title, date, link, description }) => {
   );
 };
 
-const creds = () => {
+const Creds = () => {
   const [showCreds, setShowCreds] = useState(false);
 
   useEffect(() => {
@@ -136,4 +136,4 @@ const creds = () => {
   );
 };
 
-export default creds;
+export default Creds;
