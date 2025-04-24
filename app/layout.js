@@ -9,7 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Create Next App",
+  title: "Indhu Jeyaraman",
   description: "Animated portfolio website",
   icons: {
     icon: "/favicon.ico",
@@ -29,17 +29,13 @@ function setInitialTheme() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(${setInitialTheme.toString()})()`,
-          }}
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
         className={`font-mont bg-light dark:bg-dark w-full min-h-screen ${montserrat.variable}`}
-        suppressHydrationWarning
+       
       >
         <TransitionProvider>{children} </TransitionProvider>
       </body>
