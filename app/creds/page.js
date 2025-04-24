@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-import cred1 from "../../public/images/Creds/Google-UXD-Certificate.jpg";
-import cred2 from "../../public/images/Creds/Guvi-generative-AI.jpg";
-import cred3 from "../../public/images/Creds/be10x-AI-tool-Workshop.jpg";
 import { motion, useMotionValue } from "framer-motion";
 
+const cred1 = "/images/Creds/public-UXD-Certificate.jpg";
+const cred2 = "/images/Creds/Guvi-generative-AI.jpg";
+const cred3 = "/images/Creds/be10x-AI-tool-Workshop.jpg";
 const FramerImage = motion(Image);
 const MovingImg = ({ title, img, link }) => {
   const x = useMotionValue(0);
@@ -42,6 +42,8 @@ const MovingImg = ({ title, img, link }) => {
         ref={imgRef}
         src={img}
         alt={title}
+        width={224}
+        height={150}
         className="w-56 z-10 h-auto hidden absolute rounded-lg max-md:!hidden"
       />
     </Link>
