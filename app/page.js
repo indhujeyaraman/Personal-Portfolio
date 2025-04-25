@@ -33,7 +33,7 @@ const Home = () => {
                 alt="Indhu Profile Picture"
                 width={500}
                 height={500}
-                className="w-full h-auto hidden max-lg:hidden max-md:inline-block max-md:w-full"
+                className="w-full h-auto max-lg:hidden max-md:inline-block max-md:w-full"
                 priority
                 layout="intrinsic"
               />
