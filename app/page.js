@@ -25,7 +25,7 @@ const Home = () => {
       </Head>
 
       <main className="flex items-center text-dark w-full min-h-screen 2xl:">
-        <Layout className="pt-0 max-md:pt-16 max-sm:pt-8  ">
+        <Layout className="pt-0 max-md:pt-16 max-sm:pt-8 md:pt-0 ">
           <div className="flex items-center justify-between w-full max-lg:flex-col">
             <div className="w-1/2 max-md:w-full">
               <Image
@@ -74,7 +74,11 @@ const Home = () => {
         </Layout>
         <HireMe />
         <div className="absolute right-8 bottom-8 w-24 inline-block max-md:hidden">
-          <Image src={lightBulb} alt="" className="w-full h-auto max-lg:hidden" />
+          <Image
+            src={lightBulb}
+            alt=""
+            className="w-full h-auto "
+          />
         </div>
       </main>
     </motion.div>
