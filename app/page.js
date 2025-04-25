@@ -35,6 +35,7 @@ const Home = () => {
                 height={500}
                 className="w-full h-auto hidden lg:block md:inline-block md:w-full"
                 priority
+                layout="intrinsic"
               />
             </div>
 
@@ -73,7 +74,7 @@ const Home = () => {
         </Layout>
         <HireMe />
         <div className="absolute right-8 bottom-8 w-24 inline-block max-md:hidden">
-          <Image src={lightBulb} alt="" className="w-full h-auto" />
+          <Image src={lightBulb} alt="" className="w-full h-auto max-lg:hidden" />
         </div>
       </main>
     </motion.div>
