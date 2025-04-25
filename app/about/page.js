@@ -1,9 +1,10 @@
 "use client";
+
 import Brain from "@/components/Brain";
 import Head from "next/head";
 import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
@@ -11,6 +12,7 @@ import AnimatedText from "@/components/AnimatedText";
 
 const About = () => {
   const containerRef = useRef(null);
+  const [pageLoaded, setPageLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll({
     container: containerRef,
@@ -18,6 +20,20 @@ const About = () => {
   });
 
   const profilePic = "/images/profile/developer-pic-2.png";
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    const timer = setTimeout(() => {
+      setPageLoaded(true);
+      document.body.style.overflow = "auto";
+    }, 1000);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <motion.div
@@ -55,7 +71,7 @@ const About = () => {
                   width={500}
                   height={500}
                   priority
-                  className="w-full h-auto rounded-2xl "
+                  className="w-full h-auto rounded-2xl"
                 />
               </motion.div>
 
@@ -90,7 +106,6 @@ const About = () => {
 
               {[
                 "What sets me apart is my curiosity and drive to keep learning. Whether it's exploring new design patterns, understanding user experience, or debugging a tricky layout, I enjoy every part of the process that brings a website to life across devices.",
-
                 "Right now, I'm focused on building a solid foundation with hands-on experience and real-world projects. I may be at the beginning of my journey, but I bring a strong commitment to quality, clarity, and continuous growth to everything I build.",
               ].map((text, index) => (
                 <motion.p
@@ -119,9 +134,14 @@ const About = () => {
             </div>
           </div>
         </div>
-        <Skills />
-        <Experience />
-        <Education />
+
+        {pageLoaded && (
+          <>
+            <Skills />
+            <Experience />
+            <Education />
+          </>
+        )}
       </main>
     </motion.div>
   );
