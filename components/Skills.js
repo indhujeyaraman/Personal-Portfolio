@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -10,7 +11,7 @@ const Skill = ({ name, x, y }) => {
       whileHover={{ scale: 1.05 }}
       initial={{ x: 0, y: 0 }}
       whileInView={{ x: x, y: y, transition: { duration: 1.5 } }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: "some" }}
     >
       {name}
     </motion.div>
