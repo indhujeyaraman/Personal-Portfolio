@@ -6,7 +6,7 @@ const quote = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
-    transition: { delay: 1, staggerChildren: 0.09 },
+    transition: { delay: 1, staggerChildren: 0.08 },
   },
 };
 
@@ -15,7 +15,7 @@ const singleWord = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 2 },
+    transition: { duration: 1.5 },
   },
 };
 

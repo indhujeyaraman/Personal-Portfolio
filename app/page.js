@@ -35,7 +35,6 @@ const Home = () => {
                 height={500}
                 className="w-full h-auto max-lg:hidden max-md:inline-block max-md:w-full"
                 priority
-                layout="intrinsic"
               />
             </div>
 
@@ -61,24 +60,20 @@ const Home = () => {
                 >
                   Resume <LinkArrow className={"w-6 ml-1"}></LinkArrow>
                 </Link>
-                <Link
+                <a
                   href="mailto:indhujayk@gmail.com"
                   target={"_blank"}
                   className="ml-4 text-lg font-medium capitalize text-dark underline transition-transform duration-200 hover:-translate-y-0.5 max-md:text-base"
                 >
                   Contact
-                </Link>
+                </a>
               </div>
             </div>
           </div>
         </Layout>
         <HireMe />
         <div className="absolute right-8 bottom-8 w-24 inline-block max-md:hidden">
-          <Image
-            src={lightBulb}
-            alt=""
-            className="w-full h-auto "
-          />
+          <Image src={lightBulb} alt="" className="w-full h-auto " />
         </div>
       </main>
     </motion.div>

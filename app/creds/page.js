@@ -99,7 +99,7 @@ const Creds = () => {
         <Layout className="pt-16">
           <AnimatedText
             text="Knowledge is the key to unlocking potential"
-            className="mb-16 max-lg:!text-7xl max-sm:mb-8 max-sm:!text-6xl xs:!text:4xl"
+            className="mb-16 xs:text-4xl max-sm:mb-8 max-sm:text-6xl max-lg:text-7xl"
           />
 
           <h2 className="font-bold text-4xl my-16 w-full text-center">

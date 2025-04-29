@@ -69,7 +69,7 @@ const projects = () => {
   return (
     <motion.div
       className="h-full "
-      initial={{ y: "-200vh" }}
+      initial={{ y: "-380vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
@@ -82,7 +82,7 @@ const projects = () => {
         <Layout className="pt-16">
           <AnimatedText
             text="Imagination Trumps Knowledge!"
-            className="mb-16 max-lg:!text-7xl max-sm:mb-8 max-sm:!text-6xl xs:!text:4xl"
+            className="mb-16 xs:text-4xl max-sm:mb-8 max-sm:text-6xl max-lg:text-7xl"
           />
           <div className="grid grid-cols-12 gap-24 gap-y-32 max-xl:gap-x-16 max-lg:gap-x-8 max-md:gap-y-24 max-sm:gap-x-0">
             <div className="col-span-6 max-md:col-span-12">

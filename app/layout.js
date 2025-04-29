@@ -16,16 +16,16 @@ export const metadata = {
   },
 };
 
-function setInitialTheme() {
-  const theme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// function setInitialTheme() {
+//   const theme = localStorage.getItem("theme");
+//   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (theme === "dark" || (!theme && prefersDark)) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-}
+//   if (theme === "dark" || (!theme && prefersDark)) {
+//     document.documentElement.classList.add("dark");
+//   } else {
+//     document.documentElement.classList.remove("dark");
+//   }
+// }
 
 export default function RootLayout({ children }) {
   return (
