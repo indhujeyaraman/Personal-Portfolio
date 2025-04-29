@@ -53,7 +53,7 @@ const Home = () => {
               </p>
               <div className="items-center  flex mt-2 self-start max-lg:self-center">
                 <Link
-                  href="/Indhu_Jeyaraman_CV.pdf"
+                  href="/public/indhu_Jeyaraman_CV.pdf"
                   target={"_blank"}
                   className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark max-md:p-2 max-md:px-4 max-md:text-base"
                   download={true}
